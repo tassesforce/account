@@ -1,0 +1,12 @@
+use mission_db
+db.createUser({
+                    user: "fcollonge",
+                    pwd: "Ofw7laUGHNcbwBjSaCql",
+                    roles: [ 
+                        "readWrite", 
+                        "dbAdmin", 
+                        { role: "readWrite", db: "config" }
+                    ]
+               })
+
+db.createCollection("mission")

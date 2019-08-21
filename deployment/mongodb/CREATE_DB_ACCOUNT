@@ -1,0 +1,14 @@
+use account_db
+db.createUser({
+                    user: "fcollonge",
+                    pwd: "Ofw7laUGHNcbwBjSaCql",
+                    roles: [ 
+                        "readWrite", 
+                        "dbAdmin", 
+                        { role: "readWrite", db: "config" }
+                    ]
+               })
+
+db.createCollection("account")
+db.createCollection("account_filiation")
+

@@ -1,0 +1,37 @@
+use module_db
+db.createUser({
+    user: "fcollonge",
+    pwd: "Ofw7laUGHNcbwBjSaCql",
+    roles: [ 
+        "readWrite", 
+        "dbAdmin", 
+        { role: "readWrite", db: "config" }
+    ]
+})
+
+db.createCollection("module")
+
+db.getCollection("module").insertMany([
+    {type: "Bases", "length": 6, "nbCredits": 2, "label": "Lecture", "moduleId": "4958cd98-3cd1-43cc-8224-1c0a4460debc", "userId": "", "media": ""},
+    {type: "Bases", "length": 4, "nbCredits": 1, "label": "Calcul", "moduleId": "45110dd9-313a-4f04-b590-06a4c11562f7", "userId": "", "media": ""},
+    {type: "Bases", "length": 5, "nbCredits": 2, "label": "Ecoute", "moduleId": "d0a89f38-6f50-4ccd-b3ad-7001e9858ebc", "userId": "", "media": ""},
+    {type: "Savoir-être", "length": 7, "nbCredits": 1, "label": "Accueil", "moduleId": "c1ae1ce4-41b0-4bbc-ba23-d09e93811906", "userId": "", "media": ""},
+    {type: "Savoir-être", "length": 4, "nbCredits": 2, "label": "Tenue adaptée", "moduleId": "081004ed-eadd-4706-b58f-ab90fb384e22", "userId": "", "media": ""},
+    {type: "Savoir-être", "length": 5, "nbCredits": 1, "label": "Comportement", "moduleId": "7b8fa993-4b87-4a73-887e-a35a7e7a3855", "userId": "", "media": ""},
+    {type: "Savoir-être", "length": 5, "nbCredits": 2, "label": "Gérer son planning", "moduleId": "798872cf-a2bf-425c-af09-feba8fa29cfe", "userId": "", "media": ""},
+    {type: "Sécurité", "length": 4, "nbCredits": 1, "label": "Incendie", "moduleId": "3dbc8927-482c-4dcc-9db6-0a8c644d1991", "userId": "", "media": ""},
+    {type: "Sécurité", "length": 7, "nbCredits": 1, "label": "Evacuation du site", "moduleId": "b1ebcb27-7f60-4e43-b984-21fdcf747793", "userId": "", "media": ""},
+    {type: "Sécurité", "length": 3, "nbCredits": 3, "label": "Droit de retrait", "moduleId": "332fca23-957a-46b5-acd4-a6077155610d", "userId": "", "media": ""},
+    {type: "Sécurité", "length": 4, "nbCredits": 1, "label": "TMS", "moduleId": "1c93affd-9d15-4627-8609-a1f268708d05", "userId": "", "media": ""},
+    {type: "Sécurité", "length": 5, "nbCredits": 1, "label": "Port des EPI", "moduleId": "776ee40f-c7ad-4e2d-b7e2-9229a9115680", "userId": "", "media": ""},
+    {type: "Sécurité", "length": 3, "nbCredits": 2, "label": "Comment réagir en cas d'accident ?", "moduleId": "39a5446e-85ab-4017-9dd0-53b8a4d21c28", "userId": "", "media": ""},
+    {type: "Qualité", "length": 4, "nbCredits": 2, "label": "5S", "moduleId": "af8ed613-2ca7-4053-82ce-34840ac9a78f", "userId": "", "media": ""},
+    {type: "Qualité", "length": 7, "nbCredits": 1, "label": "Hygiène", "moduleId": "cbf9e991-426a-4287-8db7-072a348df59e", "userId": "", "media": ""},
+    {type: "Qualité", "length": 3, "nbCredits": 2, "label": "Amélioration continue", "moduleId": "66c0c0c4-09bd-4e3c-8d18-dc191d3fd89d", "userId": "", "media": ""},
+    {type: "Transport/Logistique", "length": 3, "nbCredits": 3, "label": "CACES 1", "moduleId": "f022329a-db20-4b78-aa5a-3c783dfc2c1c", "userId": "", "media": ""},
+    {type: "Transport/Logistique", "length": 5, "nbCredits": 2, "label": "CACES 3", "moduleId": "fa4e8eed-2924-4fd0-a58a-5db1abc9b877", "userId": "", "media": ""},
+    {type: "Transport/Logistique", "length": 3, "nbCredits": 1, "label": "CACES 5", "moduleId": "e30dd768-fe0d-41f7-9b9a-a5681f2c0ec2", "userId": "", "media": ""},
+    {type: "Transport/Logistique", "length": 6, "nbCredits": 1, "label": "Complément au CACES", "moduleId": "911de37f-84f9-4e3b-8a14-27ab7c2583b4", "userId": "", "media": ""},
+    {type: "Transport/Logistique", "length": 6, "nbCredits": 3, "label": "Transpalette manuel", "moduleId": "f4f5d7e3-4acd-41f6-a52f-8898d43bb9f1", "userId": "", "media": ""},
+    {type: "Transport/Logistique", "length": 5, "nbCredits": 1, "label": "Se déplacer dans l'usine", "moduleId": "b6126d74-6967-49a1-a1ff-3f9dc4c0a8ab", "userId": "", "media": ""}
+])

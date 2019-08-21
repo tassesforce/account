@@ -1,0 +1,14 @@
+/mnt/partage/Commun/Workspaces/MS_Compte/bin/Debug/netcoreapp2.2/MS_Compte.deps.json
+/mnt/partage/Commun/Workspaces/MS_Compte/bin/Debug/netcoreapp2.2/MS_Compte.runtimeconfig.json
+/mnt/partage/Commun/Workspaces/MS_Compte/bin/Debug/netcoreapp2.2/MS_Compte.runtimeconfig.dev.json
+/mnt/partage/Commun/Workspaces/MS_Compte/bin/Debug/netcoreapp2.2/MS_Compte.dll
+/mnt/partage/Commun/Workspaces/MS_Compte/bin/Debug/netcoreapp2.2/MS_Compte.pdb
+/mnt/partage/Commun/Workspaces/MS_Compte/obj/Debug/netcoreapp2.2/MS_Compte.csprojAssemblyReference.cache
+/mnt/partage/Commun/Workspaces/MS_Compte/obj/Debug/netcoreapp2.2/MS_Compte.csproj.CoreCompileInputs.cache
+/mnt/partage/Commun/Workspaces/MS_Compte/obj/Debug/netcoreapp2.2/MS_Compte.AssemblyInfoInputs.cache
+/mnt/partage/Commun/Workspaces/MS_Compte/obj/Debug/netcoreapp2.2/MS_Compte.AssemblyInfo.cs
+/mnt/partage/Commun/Workspaces/MS_Compte/obj/Debug/netcoreapp2.2/MS_Compte.dll
+/mnt/partage/Commun/Workspaces/MS_Compte/obj/Debug/netcoreapp2.2/MS_Compte.pdb
+/mnt/partage/Commun/Workspaces/MS_Compte/obj/Debug/netcoreapp2.2/MS_Compte.RazorAssemblyInfo.cache
+/mnt/partage/Commun/Workspaces/MS_Compte/obj/Debug/netcoreapp2.2/MS_Compte.RazorAssemblyInfo.cs
+/mnt/partage/Commun/Workspaces/MS_Compte/obj/Debug/netcoreapp2.2/MS_Compte.RazorTargetAssemblyInfo.cache

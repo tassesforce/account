@@ -1,0 +1,112 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: compte
+  labels:
+    app: compte
+  annotations:
+    env: dev
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: compte-vol
+  namespace: compte
+  labels:
+    type: local
+spec: 
+  storageClassName: manual
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /mnt/volumes/compte
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  namespace: compte
+  name: compte-claim
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: compte
+  namespace: compte
+  labels:
+    app: compte
+    platform: dev
+  annotations:
+    env: dev
+    monitoring: 'true'
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: compte
+  template:
+    metadata:
+      labels:
+        app: compte
+    spec:
+      volumes:
+        - name: compte-vol
+          persistentVolumeClaim:
+            claimName: compte-claim
+      containers:
+        - image: "registry.learn-virtual.com:5000/ms-comptes"
+          imagePullPolicy: Always
+          name: ms-compte
+          ports:
+            - containerPort: 443
+        - image: mongo
+          name: mongo-compte
+          ports:
+            - containerPort: 27017
+          volumeMounts:
+            - mountPath: /mnt/volumes/compte
+              name: compte-vol
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: compte
+  name: compte-service
+  namespace: compte
+spec:
+  ports:
+  - nodePort: 31500
+    port: 443
+    protocol: TCP
+    targetPort: 443
+  selector:
+    app: compte
+  type: NodePort
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: compte-ingress
+  namespace: compte
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+    - host: 
+      http:
+        paths:
+        - path: /v1/account
+          backend:
+            serviceName: compte-service
+            servicePort: 443

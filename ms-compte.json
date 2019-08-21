@@ -1,0 +1,70 @@
+{
+  "Serilog": {
+    "Using": [
+      "Serilog.Sinks.RollingFile",
+      "Serilog.Sinks.Async",
+      "Serilog.Sinks.ApplicationInsights",
+      "Serilog.Sinks.Console"
+    ],
+    "MinimumLevel": {
+      "Default": "Debug",
+      "Override": {
+        "Microsoft": "Warning"
+      }
+    },
+    "WriteTo": [
+      {
+        "Name": "Async",
+        "Args": {
+          "configure": [
+            {
+              "Name": "RollingFile",
+              "Args": { "pathFormat": "log/mscomptes-{Date}.log",
+              "outputTemplate": "{Timestamp:HH:mm:ss:zzz} [{Level}] [{Address}] {Site}: {Message} {Properties} {NewLine}{Exception}"}
+           }
+          ]
+        }
+      }
+    ],
+    "Enrich": ["FromLogContext", "WithMachineName", "WithThreadId"],
+    "Properties": {
+      "Application": "CustomTemplate" 
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    "DefaultConnection":
+      "mongodb://fcollonge:Ofw7laUGHNcbwBjSaCql@127.0.0.1:27017/account_db"
+  },  
+  "Jwt": {  
+    "Key": "b9gdb2FZtRjNdWj5vXM30S32m9UjetJe8sn8LuERVw2uwymxiy664fCVe071mBHLbskqkInwVLbaCwva0MQJqulyWgRNJcyLiyILwADZbHBjVPvml8x31PqP9znMRw17NYwzJGjYFd4QYtdMSzAX7xBVDO027cpQUmlmvyUueCSvudU5rRNPvfoeLFxwDWeBNqypXowfV2WUpxUMzmNzaiDTA0fGNVy2WtHEKDu0Y5gYv361frIJwgUGqODrixoTcBzOvtYm3UrXgCGreFN2EAEQotJ3K9pRVN4s4OeiljQZ",  
+    "Issuer": "http://dev.learn-virtual.com"  
+  },
+  "Encrypt": {
+    "KeySize": 128,
+    "DerivationIterations": 1000,
+    "PassPhrase": "24ab8dc2-1443=434a-9df8-190ee0bb0647"
+  },
+  "API": {
+    "Host": "http://localhost:5001",
+    "Urls": {
+      "Compte" : {
+        "Prefixe" : "/v1/account/"
+      },
+      "Mission" : {
+        "Add" : "/v1/mission"
+      },
+      "Parameters": {
+        "Id": "id",
+        "County": "county",
+        "DispoDate": "dispoDate",
+        "Name": "name",
+        "FirstName": "firstName",
+        "LastName": "lastName",
+        "PostalCode": "postalCode",
+        "Town": "town",
+        "Sector": "sector"
+      }
+    }
+  }
+}
