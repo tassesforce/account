@@ -64,7 +64,7 @@ spec:
           persistentVolumeClaim:
             claimName: compte-claim
       containers:
-        - image: "registry.learn-virtual.com:5000/ms-comptes"
+        - image: "registry.tassesforce.com:5000/ms-comptes"
           imagePullPolicy: Always
           name: ms-compte
           ports:
