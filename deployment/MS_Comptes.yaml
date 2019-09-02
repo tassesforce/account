@@ -68,7 +68,7 @@ spec:
           imagePullPolicy: Always
           name: ms-compte
           ports:
-            - containerPort: 443
+            - containerPort: 80
         - image: mongo
           name: mongo-compte
           ports:
@@ -87,9 +87,9 @@ metadata:
 spec:
   ports:
   - nodePort: 31500
-    port: 443
+    port: 80
     protocol: TCP
-    targetPort: 443
+    targetPort: 80
   selector:
     app: compte
   type: NodePort
@@ -109,4 +109,4 @@ spec:
         - path: /v1/account
           backend:
             serviceName: compte-service
-            servicePort: 443
+            servicePort: 80
