@@ -32,6 +32,7 @@ namespace MS_Compte
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseUrls($"http://localhost:{Configuration.GetValue<int>("ConnectionStrings:Kestrel")}")
                 .UseKestrel(k => k.AddServerHeader = false)
                 .UseStartup<Startup>()
                 .UseConfiguration(Configuration)
